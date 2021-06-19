@@ -635,6 +635,33 @@ input[type="date"], input[type="time"] {
         margin: 0 100px;
     }
 }
+
+/* alert */
+/* The alert message box */
+.alert{
+    padding: 20px;
+    margin-bottom: 15px;  
+  }
+.alert-profile{
+    text-align: center;
+}
+  /* The close button */
+
+.closebtn {
+      margin: 0 15px;
+      color: #775959;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    /* When moving the mouse over the close button */
+.closebtn:hover {
+      color: #F6F0F0;
+    }
+
 /*footer*/
 .main-footer{
     height: 4rem;
