@@ -1,0 +1,34 @@
+{% extends "todoapp/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+login
+{% endblock title %}
+
+{% block content %}
+
+{% if error_message %}
+    <div class="alert alert-danger" role="alert">
+        {{error_message}}
+    </div>
+{% endif %}
+
+<div class="">
+        <div class="login">
+            <form action="" method="POST" class="p-3 border border-2">
+                {% csrf_token %}
+                {{form|crispy}}
+                <div class="loginbtn">
+                    <button type="submit" class="btn btn-primary mt-3">Login</button>
+                </div>
+                
+            </form>
+            <div class=logged_in> 
+                <span>Already logged in?</span> 
+                <a href="{% url 'todolist:my_todos' %}"> <i class="fa fa-hand-o-right" aria-hidden="true"></i>Continue</a> 
+
+            </div>
+        </div>
+</div>
+
+{% endblock content %}

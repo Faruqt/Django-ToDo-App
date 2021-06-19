@@ -1,0 +1,28 @@
+# Python
+*.py[cod]
+*.$py.class
+
+# VS Code
+*.vscode
+
+# venv
+TODO_APP/env
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+*.pot
+*.pyc
+*__pycache__
+# *media
+*.DS_Store
+
+# Backup Files
+*.bak
+
