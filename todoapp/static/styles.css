@@ -38,6 +38,32 @@ body {
     padding: 0;
     list-style: none;
 }
+/* Set the collapse button (Hamburger) border color */  
+.navbar-toggler {
+    border: 1px solid #775959;
+}
+/* Setting the  collapse button stroke to brown using rgb values (119, 89, 89) */
+  
+.navbar-toggler-icon {
+    background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(119, 89, 89)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+/* divider between drop down elements */
+.dropdown-divider {
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #775959;
+}
+
+.dropdown-menu {
+    background-color: #775959;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #775959;
+    background-color: transparent;
+}
 
 .brand-logo {
     display: flex;
@@ -313,7 +339,7 @@ ul {
 .main-footer{
     height: 60px;
     background-color: #775959;
-    position:relative;
+    position:absolute;
     width:100%;
     bottom:0px;
     margin-top: 35px;
