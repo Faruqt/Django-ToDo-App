@@ -18,12 +18,20 @@ body {
     font-size: 1.2rem;
 } 
 
-.container {
+/* .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 15px;
     height: auto;
-} 
+}  */
+.page-container{
+    position: relative;
+    min-height: 100vh;
+}
+
+.containers{
+    padding-bottom: 5rem;
+}
 /* Navbar Styles*/
 .main-header{
     display: flex;
@@ -57,7 +65,8 @@ body {
 }
 
 .dropdown-menu {
-    background-color: #775959;
+    background-color: #F6F0F0;
+    width: 50%;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -124,7 +133,9 @@ body {
 .call-to-action a{
        margin-top: 100px;
     }
-  
+.team{
+    color: #EB444E; 
+}
 .btn {
       color: #F6F0F0;
       background-color: #775959;
@@ -159,6 +170,10 @@ body {
     color: #F6F0F0;
 }
 
+.login .textinput{
+    margin-left: unset;
+}
+
 form {
     border-radius: .5rem;
     margin-bottom: 10px;
@@ -184,8 +199,51 @@ form {
 
 .nav-link{
     cursor: pointer;
+    
 }
 
+li .manage{
+    color: #F6F0F0;
+    align-items: center;
+    font-size: 1.25em;
+}
+
+.nav-item .active{
+    color: #3f2d2d
+}
+
+.nav-divider{
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #F6F0F0;;
+    width: 50%;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav {
+        background-color: #775959;
+        padding-left: revert;
+    }
+    .mb-2 {
+        margin-bottom: unset !important;
+    }
+    .user-profile{
+        margin-left: 45px;
+        width: 20%;
+    }
+    .navbar-nav .dropdown-menu {
+        margin-left: 100px;
+    }
+    li .manage{
+        width: 30%;
+    }
+}
+@media (max-width: 991px) {
+    li .manage{
+        padding-top: 16px;
+    }
+}
 /*Button and a-tag Styling*/
 .btn:hover {
     background-color: #C27D7D;
@@ -211,9 +269,16 @@ a:focus {
       margin-bottom: 10px;
     } 
     .col-sm-3{
-        width:30%;
+        width:fit-content;
     }
   }
+
+@media (max-width: 405px) {
+    .col-sm-3{
+        width:100%;
+    }
+  }
+
 
 .welcome{
     text-align: center;
@@ -335,64 +400,6 @@ ul {
     list-style-type: none;
 }
 
-/*footer*/
-.main-footer{
-    height: 60px;
-    background-color: #775959;
-    position:absolute;
-    width:100%;
-    bottom:0px;
-    margin-top: 35px;
-}
-
-.main-footer .container{
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    align-items:center;
-}
-
-.main-footer ul{
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.main-footer a{
-    text-decoration: none;
-    padding: 1rem;
-    color: #F6F0F0;
-}
-
-@media (max-width: 705px) {
-    .main-footer {
-        position:relative;
-    }
-}
-
-@media (max-width: 551px) {
-    .main-footer {
-        position:relative;
-        height: 128px;
-    }
-    .main-footer .container{
-        display: revert;
-    }
-    .main-footer ul{
-        display: revert;
-    }
-}
-
-.footer-nav a:hover{
-    color: #C27D7D;
-} 
-
-.social-link img{
-    width: 1em;
-    margin-right: .25rem;
-}
-
 /* Category page css */
 .inputContainer {
     border-top: 1px solid #C27D7D;
@@ -402,6 +409,7 @@ ul {
  
 .inputContainer label{
    margin-left: 40px;
+   color: #661313;
 }
 
 .categories .time, .categories .choice{
@@ -414,6 +422,10 @@ ul {
     border-left: 1px solid #C27D7D;
     padding-left: 5px;
     padding-bottom: 2px;
+}
+
+.time label{
+    margin-left: 10px;
 }
 
 .categories .date{
@@ -514,6 +526,66 @@ input[type="date"], input[type="time"] {
 
 .profile-form .btn{
     color: #F6F0F0 !important;
+}
+
+/*footer*/
+.main-footer{
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #775959;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.main-footer .container{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items:center;
+}
+
+.main-footer ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-footer a{
+    text-decoration: none;
+    padding: 1rem;
+    color: #F6F0F0;
+}
+
+@media (max-width: 705px) {
+    .main-footer {
+        position:relative;
+    }
+}
+
+@media (max-width: 551px) {
+    .main-footer {
+        position:relative;
+        height: 128px;
+    }
+    .main-footer .container{
+        display: revert;
+    }
+    .main-footer ul{
+        display: revert;
+    }
+}
+
+.footer-nav a:hover{
+    color: #C27D7D;
+} 
+
+.social-link img{
+    width: 1em;
+    margin-right: .25rem;
 }
 
 

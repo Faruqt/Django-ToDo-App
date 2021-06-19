@@ -13,8 +13,8 @@ login
     </div>
 {% endif %}
 
-<div class="">
-        <div class="login">
+
+<div class="login">
             <form action="" method="POST" class="p-3 border border-2">
                 {% csrf_token %}
                 {{form|crispy}}
@@ -28,7 +28,6 @@ login
                 <a href="{% url 'todolist:my_todos' %}"> <i class="fa fa-hand-o-right" aria-hidden="true"></i>Continue</a> 
 
             </div>
-        </div>
 </div>
 
 {% endblock content %}
