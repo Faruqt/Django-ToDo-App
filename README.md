@@ -8,15 +8,15 @@ This helps you to achieve all your daily and weekly objectives in timely fashion
 <p> You can find the link to the figma design <a href="https://www.figma.com/proto/uiQbfkPQcVcliXj3ujhzV7/ToDo-App-prototype?page-id=0%3A1&node-id=3%3A9&viewport=244%2C301%2C0.13127148151397705&scaling=scale-down"> here </a> </p>
 
 Here are some screenshots of the web application:
-Base page: <img src="Base_page.png"> 
+Base page: <img src="static/Base_page.png"> 
 
-Login page: <img src="Login.png"> 
+Login page: <img src="static/Login.png"> 
 
-Homepage: <img src="Homepage.png"> 
+Homepage: <img src="static/Homepage.png"> 
 
-Manage Tasks Page:  <img src="Manage_page.png"> 
+Manage Tasks Page:  <img src="static/Manage_page.png"> 
  <li> To delete a task, click the checkbox and then click the trash icon.</li>
  <li>Note:You cant delete multiple tasks at once</li>
- 
-Profile Page: <img src="Profile.png"> 
+
+Profile Page: <img src="static/Profile.png"> 
 
