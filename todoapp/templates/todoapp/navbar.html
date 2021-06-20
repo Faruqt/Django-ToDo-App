@@ -12,12 +12,13 @@
         <img class="logo" src="{% static 'Logo.svg' %}">
         <div class="brand-logo-name">ToDo</div>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- <a class="navbar-brand" href="#">Hello</a>  -->
 
       {% if request.user.is_authenticated %}
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <div class="close-icon py-1">✖</div>
+      </button>
+
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item ">
@@ -30,8 +31,7 @@
             <img src="{{request.user.profile.avatar.url}}" class="avatar-sm">&nbsp;{{request.user}}
           </div>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item {% if request.path == path_to_my_profile%}active{% endif %}" href="{{path_to_my_profile}}">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>    
+            <li><a class="dropdown-item {% if request.path == path_to_my_profile%}active{% endif %}" href="{{path_to_my_profile}}">Profile</a></li> 
             <li> <a class="dropdown-item" href= "{% url 'logout' %}">Logout</a></li>
           </ul>
         </span>

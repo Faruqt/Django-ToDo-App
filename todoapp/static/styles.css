@@ -197,6 +197,24 @@ form {
     border-radius: 50%;
     cursor: pointer;
 }
+/* navbar */
+/* ditch the ugle blue outline */
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: 0;
+}
+
+/* hide close when burger shown */
+.navbar-toggler.collapsed .close-icon {
+    display: none;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    display: inline;
+}
+.close-icon{
+    color: #3f2d2d;
+}
 
 .nav-link{
     cursor: pointer;
@@ -238,6 +256,16 @@ li .manage{
     }
     li .manage{
         width: 40%;
+    }
+}
+@media (max-width: 570px) {
+    .user-profile{
+        width: 50%;
+    }
+}
+@media (max-width: 520px) {
+    li .manage{
+        width: 60%;
     }
 }
 @media (max-width: 991px) {
@@ -694,15 +722,8 @@ input[type="date"], input[type="time"] {
     color: #F6F0F0;
 }
 
-@media (max-width: 705px) {
-    .main-footer {
-        position:relative;
-    }
-}
-
 @media (max-width: 551px) {
     .main-footer {
-        position:relative;
         height: 128px;
     }
     .main-footer .container{
