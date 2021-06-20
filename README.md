@@ -18,5 +18,5 @@ Manage Tasks Page:  <img src="./Manage_page.png">
  <li> To delete a task, click the checkbox and then click the trash icon.</li>
  <li>Note:You cant delete multiple tasks at once</li>
 
-Profile Page: <img src="./Profile.png"> 
+Profile Page: <img src="./user_logo.jpg"> 
 
