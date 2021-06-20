@@ -6,7 +6,7 @@
 *.vscode
 
 # venv
-TODO_APP/env
+todoapp/env
 .env/
 .venv/
 env/
@@ -20,9 +20,12 @@ venv.bak/
 *.pot
 *.pyc
 *__pycache__
+db.sqlite3
+local_settings.py
 # *media
 *.DS_Store
 
 # Backup Files
 *.bak
+
 
