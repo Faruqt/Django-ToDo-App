@@ -225,10 +225,12 @@ li .manage{
     color: #F6F0F0;
     align-items: center;
     font-size: 1.25em;
+    margin-left: 60px;
 }
 
 .nav-item .active{
-    color: #3f2d2d
+    background-color: #775959;
+    border-radius: 20px;
 }
 
 .nav-divider{
@@ -256,6 +258,7 @@ li .manage{
     }
     li .manage{
         width: 40%;
+        margin-left: revert;
     }
 }
 @media (max-width: 601px) {
@@ -725,13 +728,16 @@ input[type="date"], input[type="time"] {
 @media (max-width: 551px) {
     .main-footer {
         height: 100px;
-        position: unset;
+        display: none;
     }
     .main-footer .container{
         display: revert;
     }
     .main-footer ul{
         display: revert;
+    }
+    .brand-logo-name {
+        display: none;
     }
 }
 
