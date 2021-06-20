@@ -6,7 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('main')
 
 def login_view(request):
     error_message = None

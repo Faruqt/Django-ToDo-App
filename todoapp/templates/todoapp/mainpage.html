@@ -1,5 +1,7 @@
 {% extends "todoapp/base.html" %}
 
+{% load static %}
+
 {% block title %}
  Main
 {% endblock title %}
@@ -9,9 +11,41 @@
 <section class="home-main-section ">
   
   <div class="call-to-action">
-      <h1 class="title">Achieve all your daily and weekly objectives in timely fashion :)</h1>
+      <h1 class="title">Achieve all your daily and weekly <span class="team">TEAM</span>  objectives in timely fashion <i class="fa fa-clock-o" aria-hidden="true"></i></h1>
       <h3 class="subtitle"> <strong>ToDo</strong> makes it easy to create and organize your tasks </h3>
       <a href="{% url 'login' %}" class="btn">Let’s get started</a>
+  </div>
+
+
+  <div class="homepage-icon-1">
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-2"> 
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-3">
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-4">
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-5">
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-6">
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-7">
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-8">
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-9">
+    <img src="{% static 'Logo.svg' %}">
+  </div>
+  <div class="homepage-icon-10">
+    <img src="{% static 'Logo.svg' %}">
   </div>
 
 </section>

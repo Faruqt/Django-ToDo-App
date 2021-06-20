@@ -5,75 +5,41 @@
 {% url 'profiles:my_profile' as path_to_my_profile %}
 {% url 'login' as path_to_login %}
 {% url 'main' as path_to_main_page %}
-
-
-<!-- <nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-      <a class="brand-logo" href="{{path_to_home}}"><img src="{% static 'Logo.svg' %}" class="logo-sm">
-      <div class="logo-name">ToDo</div>
-      </a>
   
-      {% if request.path ==  path_to_login  %}
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link manage-button" href="{{path_to_my_profile}}">Profile</a>            
-        </li>
-      </ul>
-      {% endif %}
-      {% if request.user.is_authenticated %}
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link manage-button {% if request.path == path_to_categories%}active{% endif %}" href="{{path_to_categories}}">Manage List</a>            
-          </li>
-        </ul>
-
-            <div class="nav-item dropdown">
-              <div class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{request.user.profile.avatar.url}}" class="avatar-sm">&nbsp;{{request.user}}
-              </div>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item {% if request.path == path_to_my_profile%}active{% endif %}" href="{{path_to_my_profile}}">Profile</a></li>
-                <li> <a class="dropdown-item" href= "{% url 'logout' %}">Logout</a></li>
-              </ul>
-            </div>
-      {% endif %}
-
-    </div>
-</nav>
--->
-  
-  <nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-md">
     <div class="container-fluid">
       <a class="navbar-brand brand-logo" href="{{path_to_home}}">
         <img class="logo" src="{% static 'Logo.svg' %}">
         <div class="brand-logo-name">ToDo</div>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- <a class="navbar-brand" href="#">Hello</a>  -->
 
       {% if request.user.is_authenticated %}
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-          <li class="nav-item dropdown">
-            <div class="nav-link dropdown-toggle user-profile" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{{request.user.profile.avatar.url}}" class="avatar-sm">&nbsp;{{request.user}}
-            </div>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item {% if request.path == path_to_my_profile%}active{% endif %}" href="{{path_to_my_profile}}">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>    
-              <li> <a class="dropdown-item" href= "{% url 'logout' %}">Logout</a></li>
-            </ul>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <div class="close-icon py-1">✖</div>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item ">
+          <a class="nav-link {% if request.path == path_to_categories%}active{% endif %} manage" aria-current="page" href="{{path_to_categories}}">Manage Tasks</a>
           </li>
+          <li><hr class="nav-divider"></li> 
         </ul>
+        <span class="navbar-nav nav-item dropdown">
+          <div class="nav-link dropdown-toggle user-profile" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{request.user.profile.avatar.url}}" class="avatar-sm">&nbsp;{{request.user}}
+          </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item {% if request.path == path_to_my_profile%}active{% endif %}" href="{{path_to_my_profile}}">Profile</a></li> 
+            <li> <a class="dropdown-item" href= "{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </span>
       </div>
+      
       {% endif %}
     </div>
-  </nav>
+</nav>
 
 
 
