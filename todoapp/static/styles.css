@@ -228,7 +228,7 @@ li .manage{
     margin-left: 60px;
 }
 
-.nav-item .active{
+.manage-tasks .active{
     background-color: #775959;
     border-radius: 20px;
 }
