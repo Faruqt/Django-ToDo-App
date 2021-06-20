@@ -258,7 +258,7 @@ li .manage{
         width: 40%;
     }
 }
-@media (max-width: 570px) {
+@media (max-width: 601px) {
     .user-profile{
         width: 50%;
     }
@@ -554,10 +554,6 @@ ul {
     padding-bottom: 2px;
 }
 
-.time label{
-    margin-left: 10px;
-}
-
 .categories .date{
     padding-top: 50px;
     border-bottom: 1px solid #C27D7D;
@@ -590,8 +586,12 @@ input[type="date"], input[type="time"] {
     font-weight: normal;
     text-transform: uppercase;
 }
-
-@media (max-width: 685px) {
+@media (min-width: 768px) {
+    .time label {
+        margin-left: 10px;
+    }
+}
+@media (max-width: 768px) {
     .categories .time, .categories .choice{
         width: initial;
         float: none;
@@ -724,7 +724,8 @@ input[type="date"], input[type="time"] {
 
 @media (max-width: 551px) {
     .main-footer {
-        height: 128px;
+        height: 100px;
+        position: unset;
     }
     .main-footer .container{
         display: revert;
