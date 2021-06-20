@@ -10,7 +10,7 @@ This helps you to achieve all your daily and weekly objectives in timely fashion
 
 <br>
 Here are some screenshots of the web application:
-
+<br>
 Base page: <img src="./todoapp/static/Base_page.png"> 
 
 Login page: <img src="./todoapp/static/Login.png"> 
