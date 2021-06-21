@@ -7,11 +7,13 @@ This helps you to achieve all your daily and weekly team objectives in timely fa
 - The interface for this ToDo List application was created using the FIGMA design tool
 - You can find the link to the figma design <a href="https://www.figma.com/proto/uiQbfkPQcVcliXj3ujhzV7/ToDo-App-prototype?page-id=0%3A1&node-id=3%3A9&viewport=244%2C301%2C0.13127148151397705&scaling=scale-down"> here </a> 
 
-- The web application has been deployed to heroku server so that you can have a full user experience of the web application .<a href="https://faruqs-todo-app.herokuapp.com/"> Go here </a>
-        ```shell
-        Username: Ace
-        Password: 12345ace
-        ```
+- The web application has been deployed to heroku server so that you can have a full user experience of the web application .<a href="https://faruqs-todo-app.herokuapp.com/"> Click here </a>
+       
+     ```shell
+    Login details:
+    Username: Ace
+    Password: 12345ace
+    ```
 
 Here are some screenshots of the web application:
 <br>
