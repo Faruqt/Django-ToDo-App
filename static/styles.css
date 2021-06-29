@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
@@ -14,8 +13,8 @@ body {
     padding: 0;
     margin: 0;
     background-color:#C3B5AE;
-    font-family: Poppins, sans-serif;
-    font-size: 1.2rem;
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
 } 
 
 /* .container {
@@ -50,12 +49,13 @@ body {
 .navbar-toggler {
     border: 1px solid #775959;
 }
-/* Setting the  collapse button stroke to brown using rgb values (119, 89, 89) */
-  
-/* .navbar-toggler-icon {
+/* Adding the collapsed Hamburger button */
+.navbar-toggler-icon {
     background-image: url(
-    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(119, 89, 89)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-} */
+      "hamburger.svg"
+    );
+    color:#775959;
+}
 /* divider between drop down elements */
 .dropdown-divider {
     height: 0;
@@ -150,10 +150,10 @@ body {
     }
   
  
-  /* Login */
+  /* Login/Register */
 
-.login{
-    width: 40%;
+.login, .register{
+    width: 50%;
     margin: 0 auto;
     padding: 20px;
     border-radius: .5rem;
@@ -163,16 +163,56 @@ body {
     transform: translate(-50%, -50%);
   }
 
-.loginbtn{
+.loginbtn, .registerbtn{
     text-align:center;
 }
 
-.logged_in a{
+.logged_in a, .registered a{
     color: #F6F0F0;
 }
 
-.login .textinput{
+.login .textinput, .register .textinput{
     margin-left: unset;
+}
+.register input[type="text"]{
+    height: revert;
+    margin-left: 0px;
+    font-size: inherit;
+}
+
+.register input{
+    padding-left: 5px;
+    width: 90%;
+    border: none;
+}
+
+.input-group{
+    margin-bottom: 10px;
+}
+
+.input-group .fa-user{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.input-group-addon{
+    border: none;
+}
+
+.Register-Header{
+    text-align:center;
+}
+
+.mb-5 {
+    margin-bottom: 1rem!important;
+}
+
+.register label{
+    margin-bottom: 5px;
+}
+
+.reg_error{
+    color:red;
 }
 
 form {
@@ -182,7 +222,23 @@ form {
 .asteriskField {
     display: none;
 }
+@media (min-width:699px) and (max-width: 827px) {
+    .login, .register{   
+        width: 50%;
+    }
+}
 
+@media (min-width:421px) and (max-width: 698px) {
+    .login, .register{
+        width: 80%;
+    }
+}
+
+@media (max-width: 420px) {
+    .login, .register{
+        width: 90%;
+    }
+}
 /* User Avatar */
 
 .avatar-big {
@@ -251,7 +307,7 @@ li .manage{
     }
     .user-profile{
         margin-left: 45px;
-        width: 20%;
+        width: 35%;
     }
     .navbar-nav .dropdown-menu {
         margin-left: 100px;
@@ -266,14 +322,14 @@ li .manage{
         width: 50%;
     }
 }
-@media (max-width: 520px) {
-    li .manage{
-        width: 60%;
-    }
-}
 @media (max-width: 991px) {
     li .manage{
         padding-top: 16px;
+    }
+}
+@media (max-width: 520px) {
+    li .manage{
+        width: 60%;
     }
 }
 /*Button and a-tag Styling*/
@@ -318,7 +374,6 @@ a:focus {
     color: #661313;
     margin-bottom: 25px;
     text-transform: uppercase;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .user{
@@ -640,7 +695,7 @@ input[type="date"], input[type="time"] {
     cursor: pointer;
 }
 
-@media (max-width: 705px) {
+@media (max-width: 767px) {
     .taskDelete  {
         float: none;
     }
