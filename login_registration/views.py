@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
-
+from .forms import CustomUserCreationForm
 # Create your views here.
 
 def logout_view(request):
@@ -32,3 +32,24 @@ def login_view(request):
     }
 
     return render(request, 'auth/login.html', context)
+
+def registerUserView(request):
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            username= form.cleaned_data.get('username')
+            raw_password=form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            
+            if user is not None:
+                login(request, user)
+                return redirect('todolist:my_todos')
+    
+    else:
+        form = CustomUserCreationForm()
+
+    context= {'form':form}
+    return render(request,'auth/register.html', context)
