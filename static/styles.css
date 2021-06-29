@@ -30,6 +30,12 @@ body {
 .containers{
     padding-bottom: 5rem;
 }
+
+@media (max-width: 551px)  {
+    .containers{
+        padding-bottom: 2rem;
+    }
+}
 /* Navbar Styles*/
 .main-header{
     display: flex;
@@ -237,10 +243,8 @@ form {
     .login, .register{
         width: 90%;
     }
-    .containers{
-        padding-bottom: 2rem;
-    }
 }
+
 /* User Avatar */
 
 .avatar-big {
