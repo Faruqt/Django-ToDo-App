@@ -14,7 +14,6 @@ body {
     margin: 0;
     background-color:#C3B5AE;
     font-family: 'Nunito', sans-serif;
-    overflow: hidden;
 } 
 
 /* .container {
@@ -237,6 +236,9 @@ form {
 @media (max-width: 420px) {
     .login, .register{
         width: 90%;
+    }
+    .containers{
+        padding-bottom: 2rem;
     }
 }
 /* User Avatar */
