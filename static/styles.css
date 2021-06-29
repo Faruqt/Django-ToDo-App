@@ -204,7 +204,7 @@ body {
     border: none;
 }
 
-.Register-Header{
+.Register-Header, .Login-Header{
     text-align:center;
 }
 

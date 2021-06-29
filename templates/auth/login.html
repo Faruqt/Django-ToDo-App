@@ -10,15 +10,18 @@ login
 <div class="login">
             <form action="" method="POST" class="p-3 border border-2">
                 {% csrf_token %}
+                <div class="Login-Header">
+                    <h4 class="mb-5">Login</h4>
+                </div>
                 {{form|crispy}}
                 <div class="loginbtn">
                     <button type="submit" class="btn btn-primary mt-3">Login</button>
                 </div>
                 
             </form>
-            <div class=logged_in> 
-                <span>Already logged in?</span> 
-                <a href="{% url 'todolist:my_todos' %}"> <i class="fa fa-hand-o-right" aria-hidden="true"></i>Continue</a> 
+            <div class=log_in> 
+                <span>Dont have an account yet?</span> 
+                <a href="{% url 'register' %}"> <i class="fa fa-hand-o-right" aria-hidden="true"></i>Register</a> 
 
             </div>
 </div>
