@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'todolist',
     'profiles',
     'category',
-    'login',
+    'login_registration',
     #3rd Party
     'crispy_forms',
 ]

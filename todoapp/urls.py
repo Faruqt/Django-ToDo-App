@@ -18,7 +18,7 @@ from django.urls import path, include
 from todolist.views import my_todos
 from django.conf import settings
 from django.conf.urls.static import static
-from login.views import login_view,logout_view
+from login_registration.views import login_view,logout_view, registerUserView
 from .views import main
 
 urlpatterns = [
