@@ -9,11 +9,6 @@ This helps you to achieve all your daily and weekly team objectives in timely fa
 
 - The web application has been deployed to heroku server so that you can have a full user experience of the web application .<a href="https://faruqs-todo-app.herokuapp.com/"> Click here </a>
        
-     ```shell
-    Login details:
-    Username: Ace
-    Password: 12345ace
-    ```
 
 Here are some screenshots of the web application:
 <br>
