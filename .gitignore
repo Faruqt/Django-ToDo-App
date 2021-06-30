@@ -7,7 +7,7 @@
 **/.vscode/
 
 # venv
-TODO_APP/env
+DJANGO-TODO-APP/env
 .env/
 .venv/
 env/
