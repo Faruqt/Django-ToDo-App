@@ -734,6 +734,11 @@ input[type="date"], input[type="time"] {
     }
 }
 
+@media (max-width: 400px) {
+    .profile-form {
+    margin: 0 70px;
+    }
+}
 /* alert */
 /* The alert message box */
 .alert{
