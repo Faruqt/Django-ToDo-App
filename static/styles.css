@@ -252,6 +252,9 @@ form {
 }
 
 /* User Avatar */
+.profile-form .form-control {
+    line-height: 0.9;
+}
 
 .avatar-big {
     height: 120px;
