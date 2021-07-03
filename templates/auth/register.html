@@ -8,20 +8,52 @@ register
 {% block content %}
 
 <div class="register">
-            <form action="" method="POST" class="p-3 border border-2">
-                <h1>Register</h1>
-                {% csrf_token %}
-                {{form|crispy}}
-              
-                <div class="registerbtn bt">
-                    <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
-                </div>
-            </form>
 
-            <div class=registered> 
-                <span>Already have an account?</span> 
-                <a href="{% url 'login' %}"> <i class="fa fa-hand-o-right" aria-hidden="true"></i>Login</a> 
-            </div>
+    <form method="POST" action="" class="p-3 border border-2">
+        {% csrf_token %}
+        <div class="Register-Header">
+            <h4 class="has-text-centered mb-5 is-size-3">Register</h4>
+        </div>
+                
+        <label for="" class="label">Username</label>
+        <div class="input-group">
+                <span class="input-group-addon"> <i class="fa fa-user"></i> </span>
+                {{ form.username }}
+        </div>
+
+        <label for="" class="label">Password</label>
+        <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                {{ form.password1 }}
+        </div>
+
+        <label for="" class="label">Re-enter password</label>
+        <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                {{ form.password2 }}
+        </div>
+
+          
+        <div class="reg_error">
+            {% for field in form %}
+            {% for error in field.errors %}
+                    
+                <span class=""><i class="fa fa-exclamation-triangle"></i></span>
+                {{ error }}
+                <br>
+            {% endfor %}
+            {% endfor %}
+</div>
+                
+        <div class="registerbtn">
+            <button type="submit" class="btn btn-primary mt-3">Register</button>
+        </div>
+    </form>
+            
+    <div class="registered">
+        <span>Already registered?</span> 
+        <a href="{% url 'login' %}"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Login</a> 
+    </div>
 </div>
                 
 {% endblock content %}

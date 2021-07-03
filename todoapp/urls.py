@@ -29,6 +29,7 @@ urlpatterns = [
     path('my_categories/', include('category.urls', namespace='categories')),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('register/', registerUserView, name='register'),
   ]
 
 urlpatterns += static (settings.STATIC_URL, document_root = settings.STATIC_ROOT)
