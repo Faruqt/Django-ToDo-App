@@ -55,6 +55,16 @@
                             </div> 
                     </form>
 
+                    <!-- Error alert -->
+                    {% if check %}
+                    <div class="alert alert-warning" role="alert">
+                        <span class="closebtns" onclick="this.parentElement.style.display='none';">&times;</span>
+                        {{check}}
+                    </div>
+                    {% endif %}
+
+                    <!-- End error alert -->
+
                     <form action="" method="post">
                         {% csrf_token %} <!-- csrf token for security -->
 
