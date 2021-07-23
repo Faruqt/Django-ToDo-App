@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils import timezone
 from .models import Category
 from todolist.models import TodoList
 from profiles.models import Profile
@@ -7,7 +8,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def categories(request): 
-    todos = TodoList.objects.all() 
+    user= request.user
+    now = timezone.now().strftime("%Y-%m-%d")
+    todos = TodoList.objects.filter(user=user) 
     categories = Category.objects.all() 
     check= None
   
@@ -18,7 +21,7 @@ def categories(request):
             time = str(request.POST["time"])
             category = request.POST["category_select"]
             content = title + "  at " + time + " on " + date + " [" + category + " ]" 
-            Todo = TodoList(title=title, content=content, time=time, due_date=date, category=Category.objects.get(name=category))
+            Todo = TodoList(title=title, content=content, time=time, due_date=date, category=Category.objects.get(name=category),user=user)
             Todo.save()  
            
             
@@ -31,6 +34,7 @@ def categories(request):
                 check = 'Please check-box of task to be deleted'
 
     context = {
+        "DateNow" : now,
         "todos": todos, 
         "categories":categories,
         "check":check,

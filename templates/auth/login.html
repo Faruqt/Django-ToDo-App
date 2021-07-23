@@ -1,4 +1,5 @@
 {% extends "todoapp/base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block title %}
@@ -7,7 +8,14 @@ login
 
 {% block content %}
 
+
+<a class="brand-logo" href="{% url 'main' %}">
+    <img class="logo" src="{% static 'Logo.svg' %}">
+    <div class="brand-logo-name"><strong> ToDo </strong> </div>
+</a>
+
 <div class="login">
+
             <form action="" method="POST" class="p-3 border border-2">
                 {% csrf_token %}
                 <div class="Login-Header">
@@ -19,7 +27,7 @@ login
                 </div>
                 
             </form>
-            <div class=log_in> 
+            <div class=logged_in> 
                 <span>Dont have an account yet?</span> 
                 <a href="{% url 'register' %}"> <i class="fa fa-hand-o-right" aria-hidden="true"></i>Register</a> 
 

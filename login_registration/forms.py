@@ -5,14 +5,17 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 class CustomUserCreationForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         "class": "input",
+        'required': True
     }))
 
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
         "class": "input",
+        'required': True
     }))
 
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         "class": "input",
+        'required': True
     }))
 
     class Meta:
@@ -22,6 +25,7 @@ class CustomUserCreationForm(UserCreationForm):
     def clean_username(self):
         data = self.cleaned_data['username']
         return data.lower()
+
 
 
 class LoginForm(AuthenticationForm):

@@ -7,27 +7,35 @@ Your profile
 
 {% block content %}
 
-{% if confirm %}
-<div class="alert-profile">
-    <div class="alert alert-primary" role="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>Your profile has been updated
-    </div>
-</div>
-{% endif %}
+<div class=profile_content>
 
-<div class="text-center">
+    <div class="welcome">
+        <button id="openbutton" class="openbtn" >&#9776;</button>
+        <span class="welcome-text">Your Profile</span> 
+    </div>
+
+    {% if confirm %}
+        <div class="alert-profile">
+        <div class="alert alert-primary" role="alert">
+            <span class="closebtns" onclick="this.parentElement.style.display='none';">&times;</span>Your profile has been updated
+        </div>
+        </div>
+    {% endif %}
+
+    <div class="text-center">
     <img src="{{profile.avatar.url}}" alt="my-profile" class="avatar-big">
-</div>
-
-<br>
-<form class= "profile-form" action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form|crispy}}
-    <div class="profile-buttons">
-        <button type="submit" class="btn btn-primary mt-3">Update</button>
-    <a href="{% url 'todolist:my_todos' %}" class="btn btn-primary mt-3"> Exit </a>
     </div>
-    
-</form> 
 
+    <br>
+    <form class= "profile-form" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div class="profile-buttons">
+            <button type="submit" class="btn btn-primary mt-3">Update</button>
+            <a href="{% url 'todolist:my_todos' %}" class="btn btn-primary mt-3"> Exit </a>
+        </div>
+    
+    </form> 
+
+</div>
 {% endblock content %}

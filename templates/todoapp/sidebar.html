@@ -1,0 +1,28 @@
+{% load static %}
+
+{% url 'todolist:my_todos' as path_to_home %}
+{% url 'category:my_categories' as path_to_categories %}
+{% url 'profiles:my_profile' as path_to_my_profile %}
+{% url 'login' as path_to_login %}
+{% url 'main' as path_to_main_page %}
+
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" id="closebutton" class="closebtn">&times;</a>
+  <div class="top-sidebar">
+    <img src="{{request.user.profile.avatar.url}}" class="avatar-sm">&nbsp;{{request.user}}
+  </div>
+  
+  <ul>
+    <li><a class=" {% if request.path == path_to_home%}active{% endif %}" href="{{path_to_home}}"><i class="fa fa-home"></i>Home</a></li>
+    <li><a class=" {% if request.path == path_to_categories%}active{% endif %}" href="{{path_to_categories}}"><i class="fa fa-tasks"></i>Task Management</a></li>
+    <li><a class=" {% if request.path == path_to_my_profile%}active{% endif %}" href="{{path_to_my_profile}}"><i class="fa fa-user"></i>Profile</a></li>
+    <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>Logout</a></li>
+  </ul> 
+  <div class="social_media">
+    <a href="#"><i class="fa fa-facebook-f"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+  </div>
+
+</div>

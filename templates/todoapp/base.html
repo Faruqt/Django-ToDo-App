@@ -1,4 +1,7 @@
 {% load static %}
+{% url 'login' as path_to_login %}
+{% url 'main' as path_to_main_page %}
+{% url 'register' as path_to_register_page %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,29 +16,56 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         
-        <!-- Custom js & CSS -->
+        <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        
+        {% if request.path != path_to_main_page %}   
+            {% if request.path != path_to_login %} 
+                {% if request.path != path_to_register_page %} 
+                     <script src="{% static 'sidebar.js' %}" defer></script>
+                {% endif %}
+            {% endif %}
+         {% endif %}
+
         {% block scripts %}
+        
         {% endblock scripts %}
-
-
 
         <title>TodoApp - {% block title %}{% endblock title %}</title>
     </head>
-    <body >
-        <div class="page-container">
-            <div class="containers">
-                {% include 'todoapp/navbar.html' %}
-    
+    <body class="">
+
+        <!-- This prevents the WRAPPER class from activating on the main, sign in and register pages -->
+        {% if request.path != path_to_main_page %}   
+                    {% if request.path != path_to_login %} 
+                        {% if request.path != path_to_register_page %} 
+        <div class="wrapper">  
+
+                        {% endif %}
+                    {% endif %}
+        {% endif %}
+                <!-- This prevents the sidebar from showing up on the main, sign in and register pages -->
+                {% if request.path != path_to_main_page %}   
+                    {% if request.path != path_to_login %} 
+                        {% if request.path != path_to_register_page %} 
+                            
+                            {% include 'todoapp/sidebar.html' %}
+
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+                <!-- End of sidebar  -->
+                
                 {% block content %}
                 {% endblock content %}
-                
-            </div>
-            {% include 'todoapp/footer.html' %}
+
         </div>
-        
+
+     
         <!-- Bootstrap js -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <!-- Custom js -->
+        
     </body>
 </html>

@@ -1,4 +1,5 @@
 {% extends "todoapp/base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block title %}
@@ -6,6 +7,13 @@ register
 {% endblock title %}
 
 {% block content %}
+
+
+
+<a class="brand-logo" href="{% url 'main' %}">
+    <img class="logo" src="{% static 'Logo.svg' %}">
+    <div class="brand-logo-name"><strong> ToDo </strong> </div>
+</a>
 
 <div class="register">
 
@@ -26,7 +34,7 @@ register
                 <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
                 {{ form.password1 }}
         </div>
-
+        <p>*Password must be at least 8 characters.</p>
         <label for="" class="label">Re-enter password</label>
         <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
@@ -43,7 +51,7 @@ register
                 <br>
             {% endfor %}
             {% endfor %}
-</div>
+        </div>
                 
         <div class="registerbtn">
             <button type="submit" class="btn btn-primary mt-3">Register</button>
