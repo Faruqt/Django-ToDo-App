@@ -5,83 +5,138 @@
 {% block title %}
     category
 {% endblock title %}
+
+{% block scripts %}
   
+{% endblock scripts %}
+
 {% block content %}
 
-    <div django-app="TaskManager" class="categories" >        
-        <div class="container">
+    <div django-app="TaskManager" class="task_content categories" >    
+        <div class="">
                 <div class="content">
                         <div class="welcome">
-                            <p>Manage Your ToDo List</p>
+                            <button id="openbutton" class="openbtn" >&#9776;</button>
+                            <span class="welcome-text">Manage Your ToDo List</span> 
                         </div>
 
-                    <form action="" method="post">
-                            {% csrf_token %} <!-- csrf token for security -->
-                                <div class="inputContainer">
-                                    <label for="description">Task : </label>
-                                    <input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description" required>
-                                
-                                </div>
-                                <div class="inputContainer choice ">
-                                    
-                                    <label for="category">Category :  </label>
-                                    <select id="category" class="taskCategory" name="category_select">
-                                    <option class="disabled" value="">Choose a category</option>
-                                    {% for category in categories %}
-                                        <option class="" value="{{ category.name }}" name="{{ category.name }}">{{ category.name }}</option>
-                                    {% endfor %}
-                                    </select>
-                                    <!-- <i class="fa fa-caret-down selectArrow"></i> -->
-                                    
-                                </div>
-
-                                <div class="inputContainer  time">
-                                    <label for="Time-allocated">Time : </label>
-                                    <input type="time" id="Time-allocated" class="taskTime" name="time">
-                                </div>
+                    <form class="" action="" method="post">
+                        {% csrf_token %} <!-- csrf token for security -->
+                            <div class="inputContainer Task">
+                                <label for="description">Task:  </label>
+                                <input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description" required>
                             
-                                <div class="inputContainer  date ">
-                                    <label for="dueDate">Date : </label>
-                                    <input type="date" id="dueDate" class="taskDate" name="date">
-                                </div>   
-                                <div class="buttons">
-                                    <button class="taskAdd btn" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
-                                    <!-- <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button> -->
-                                </div> 
-                                <ul class="taskList">
-                                    {% for todo in todos %} 
-                                        <li class="taskItem">
-                                            <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}" >
-                                            <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
-                                            <span class="taskDone" >at</span>
-                                            <strong class="taskTime taskDone"><i class="fa fa-clock-o"></i> {{ todo.time }}</strong>
-                                            <strong class="taskDate taskDone"><i class="fa fa-calendar"></i> {{ todo.due_date }}</strong>
-                                            <span class="categorypage-{{ todo.category }}">{{ todo.category }}</span>
-                                            <button class="taskDelete " name="taskDelete" formnovalidate="" type="submit" ><i class="fa fa-trash-o icon"></i></button>
-                                        </li>
-                                    {% endfor %}
-                                </ul><!-- end taskList -->                 
+                            </div>
+                            <div class="inputContainer choice ">
+                                
+                                <label for="category">Category:   </label>
+                                <select id="category" class="taskCategory" name="category_select">
+                                <option class="disabled" value="">Choose a category</option>
+                                {% for category in categories %}
+                                    <option class="" value="{{ category }}" name="">{{ category}}</option>
+                                {% endfor %}
+                                </select>
+                                <!-- <i class="fa fa-caret-down selectArrow"></i> -->
+                                
+                            </div>
+
+                            <div class="inputContainer  time">
+                                <label for="Time-allocated">Time:  </label>
+                                <input type="time" id="Time-allocated" class="taskTime" name="time">
+                            </div>
+                            
+                            <div class="inputContainer  date ">
+                                <label for="dueDate">Date: </label>
+                                <input type="date" id="dueDate" class="taskDate" name="date">
+                            </div>   
+                            <div class="buttons">
+                                <button class="taskAdd btn" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
+                                <!-- <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button> -->
+                            </div> 
                     </form>
- 
+
+                    <form action="" method="post">
+                        {% csrf_token %} <!-- csrf token for security -->
+
+                        <div class="tabs effect-1">
+                            <!-- radio buttons -->
+                          <input type="radio" id="tab-1" name="tab-effect-1" checked="checked">
+                          <span>All</span>
+              
+                          <input type="radio" id="tab-2" name="tab-effect-1">
+                          <span>Pending</span>
+              
+                          <input type="radio" id="tab-3" name="tab-effect-1">
+                          <span>Overdue</span>
+              
+                           <!-- end of radio buttons -->
+
+
+                             <!-- tab-content -->
+			            <div class="tab-content">
+			            	<section id="tab-item-1">
+                                <ul class="taskList">        
+                                    {% for todo in todos %} 
+                                    <li class="currentTaskItem">
+                                        <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}" >
+                                        <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
+                                        <span class="taskDone" >at</span>
+                                        <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ todo.time }}</strong>
+                                        <strong class="taskDatee taskDone"><i class="fa fa-calendar"></i> {{ todo.due_date }}</strong>
+                                        <span class="categorypage-{{ todo.category }}">{{ todo.category }}</span>
+                                        <button class="taskDelete " name="taskDelete" formnovalidate="" type="submit" ><i class="fa fa-trash-o icon"></i></button>
+                                    </li>     
+                                    {% endfor %}
+                                </ul> <!--end All-Tasks-List -->
+			            	</section>
+                            <section id="tab-item-2">
+                                <ul id ="currentTasks" class="taskList">        
+                                    {% for todo in todos %} 
+                                    {% if todo.due_date|date:"Y-m-d" >= DateNow %}
+                                      <li class="currentTaskItem">
+                                          <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}" >
+                                          <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
+                                          <span class="taskDone" >at</span>
+                                          <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ todo.time }}</strong>
+                                          <strong class="taskDatee taskDone"><i class="fa fa-calendar"></i> {{ todo.due_date }}</strong>
+                                          <span class="categorypage-{{ todo.category }}">{{ todo.category }}</span>
+                                          <button class="taskDelete " name="taskDelete" formnovalidate="" type="submit" ><i class="fa fa-trash-o icon"></i></button>
+                                      </li>
+                                    {% endif %}
+                                  {% endfor %}
+                                </ul> <!--end CurrentTaskList -->
+                            </section>
+                            <section id="tab-item-3">
+                                <ul id ="overdueTasks" class="taskList">
+                                    {% for todo in todos %} 
+                                    {% if DateNow > todo.due_date|date:"Y-m-d" %}
+                                      <li  class="overdueTaskItem">
+                                      <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}" >
+                                      <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
+                                      <span class="taskDone" >at</span>
+                                      <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ todo.time }}</strong>
+                                      <strong class="taskDatee taskDone"><i class="fa fa-calendar"></i> {{ todo.due_date }}</strong>
+                                      <span class="categorypage-{{ todo.category }}">{{ todo.category }}</span>
+                                      <button class="taskDelete " name="taskDelete" formnovalidate="" type="submit" ><i class="fa fa-trash-o icon"></i></button>
+                                      </li>
+                                    {% endif %}
+                                  {% endfor %}
+                                </ul> <!--end OverdueTaskList -->
+                            </section>
+                          </div><!-- end tab content -->
+
+                         </div><!-- end tab effect -->
+                        </form>
+                    
+
                   
                 </div><!-- end content -->
-                {% if check %}
-                <div class="alert alert-warning" role="alert">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    {{check}}
-                </div>
-                {% endif %}
-            <!-- <form action="" method='POST'>
-
-                {% csrf_token %}
-                {{search_form| crispy}}
-        
-                <button class="taskAdd" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Create New Todo</button>
-            </form> -->
+                
         </div><!-- container -->
+        <div class="done">
+            <a href="{% url 'todolist:my_todos' %}" class="btn btn-primary mt-3"> <i class="fa fa-home"></i>Back to Home </a>
+        </div>
     </div>
-    <div class="done">
-        <a href="{% url 'todolist:my_todos' %}" class="btn btn-primary mt-3"> Back to Home </a>
-    </div>
+    
 
 {% endblock content %} 
