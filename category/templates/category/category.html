@@ -55,7 +55,7 @@
                             </div> 
                     </form>
 
-                    <!-- Error alert -->
+                    <!-- Task Delete Error alert -->
                     {% if check %}
                     <div class="alert alert-warning" role="alert">
                         <span class="closebtns" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -63,7 +63,7 @@
                     </div>
                     {% endif %}
 
-                    <!-- End error alert -->
+                    <!-- End Task Delete error alert -->
 
                     <form action="" method="post">
                         {% csrf_token %} <!-- csrf token for security -->
