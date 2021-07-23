@@ -7,63 +7,128 @@
 {% endblock title %}
 
 {% block scripts %}
-    <script src="{% static 'taskdone.js' %}" defer></script>
+ 
 {% endblock scripts %}
 
 {% block content %}
 
-<div class="container">
-    <div class="welcome">
-        <p class="">Hello <span class="user">{{username}}</span> <span class="exclamation-mark">!</span> Let's get things done <i class="fa fa-smile-o" aria-hidden="true"></i></p>     
-    </div>
-    <div class="">
-        <p class="heading">Categories</p>
-        <hr>
-        <div class="row">
-            <div class="col-sm-3 category category1">
-                    <br>
-                    <span id="count"> {{no_of_business_tasks}} </span>
-                    <span> task(s)</span>
-                    <p><strong>{{category_i}}</strong></p>     
-            </div>
-          
-            <div class="col-sm-3 category category2">
-                <br>
-                 <span id="count"> {{no_of_personal_tasks}} </span>
-                 <span> task(s)</span>
-                <p><strong>{{category_ii}}</strong></p>
-                
-            </div>
-            <div class="col-sm-3 category category3">
-                <br>
-                 <span id="count"> {{no_of_other_tasks}} </span>
-                 <span> task(s)</span>
-                <p><strong>{{category_iii}}</strong></p>
-                <br>
-            </div>
-        </div> <!-- end row -->
-        <p class='heading'>Todo List</p>
-
-        <div>
-            <ul class="taskList">
-                {% for todo in todos %} 
-                    <li class="taskItem">
-                        <i class="fa fa-tasks" aria-hidden="true"></i>
-                        <span  id=TaskDone class="complete- taskDone">{{ todo.title }}</span>
-                        <span class="taskDone" >at</span>
-                        <strong class="taskTime taskDone"><i class="fa fa-clock-o"></i> {{ todo.time }}</strong>
-                        <span class="taskDone" >on</span>
-                        <strong class="taskDate taskDone"><i class="fa fa-calendar"></i> {{ todo.due_date }}</strong>
-                        <span class="category-{{ todo.category }}">{{ todo.category }}</span>
-                    </li>
-                {% endfor %}
-            </ul><!-- end taskList -->
+    <div class="main_content">
+        <div class="welcome">
+                <button id="openbutton" class="openbtn" >&#9776;</button>
+                 <span class="welcome-text"> Welcome <span class="user">{{username}}</span> <span class="exclamation-mark">!</span> <i class="fa fa-smile-o" aria-hidden="true"></i></span> 
+                 {% if no_of_other_tasks > 0 or no_of_business_tasks > 0 or no_of_personal_tasks > 0 %}
+                <div  class="taskAdd">
+                        <a href="{% url 'category:my_categories' %}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add</span> <span class="or">or</span> <i class="fa fa-trash-o icon"></i> <span class="Delete">Delete Task(s)</span> </a>
+                </div> <!--end taskAdd -->    
+                {% endif %} 
         </div>
-        <div class="taskAdd">
-            <a href="{% url 'category:my_categories' %}" class="btn btn-primary mt-3"> <i class="fa fa-plus icon"></i>  <span class="Add">Add</span> <span class="or">or</span> <i class="fa fa-trash-o icon"></i> <span class="Delete">Delete Task(s)</span> </a>
-        </div> <!-- end taskAdd -->
-    </div>
-</div>
-    
+        <div class="category-card">
+            <p class="heading">Overview</p>
+            <div class="row">
+                <div class="category category1">
+                    <span id="count"> {{no_of_business_tasks}} </span>
+                    <p><strong class="cat1"> {{category_i}} task(s)</strong></p>     
+                </div>
+                <div class="vl"></div>
+                <div class="category category2">
+                    <span id="count"> {{no_of_personal_tasks}} </span>
+                    <p><strong class="cat2">{{category_ii}} task(s)</strong></p>
+                </div>
+                <div class="vl"></div>
+                <div class="category category3">
+                     <span id="count"> {{no_of_other_tasks}} </span>
+                    <p><strong class="cat3">{{category_iii}} task(s)</strong></p>
+                </div> 
+            </div> <!--end row  -->
+        </div>  
+        <div class="task-card">
+            <p class="heading">Todo-List</p> 
+            <!-- <div class="displayTasks">
+                <button id="currentTasksButton" class="btn" onclick="displayCurrentTasks()" disabled>Present tasks</button>
+                <button id="overDueTasksButton" class="btn" onclick="displayOverDueTasks()" >Overdue tasks</button>
+            </div> -->
+          <div class="tabs effect-1">
+              <!-- radio buttons -->
+            <input type="radio" id="tab-1" name="tab-effect-1" checked="checked">
+			<span>All</span>
 
+			<input type="radio" id="tab-2" name="tab-effect-1">
+			<span>Pending</span>
+
+			<input type="radio" id="tab-3" name="tab-effect-1">
+			<span>Overdue</span>
+
+             <!-- end of radio buttons -->
+
+            <!-- tab-content -->
+			<div class="tab-content">
+				<section id="tab-item-1">
+                    <ul class="taskList">        
+                        {% for todo in todos %} 
+                                <li class="currentTaskItem">
+                                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                                    <span  id=TaskDone class="complete- taskDone">{{ todo.title }}</span>
+                                    <span class="taskDone" >at</span>
+                                    <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ todo.time }}</strong>
+                                    <span class="taskDone" >on</span>
+                                    <strong class=" taskDatee taskDone"><i class="fa fa-calendar"></i> {{ todo.due_date }}</strong>
+                                    <span class="categoryy-{{ todo.category }}">{{ todo.category }}</span>
+                                </li>
+                        {% endfor %}
+                    </ul> <!--end All-Tasks-List -->
+				</section>
+				<section id="tab-item-2">
+                    <ul id ="currentTasks" class="taskList">        
+                        {% for todo in todos %} 
+                            {% if todo.due_date|date:"Y-m-d" >= DateNow %}
+                                    <li class="currentTaskItem">
+                                        <i class="fa fa-tasks" aria-hidden="true"></i>
+                                        <span  id=TaskDone class="complete- taskDone">{{ todo.title }}</span>
+                                        <span class="taskDone" >at</span>
+                                        <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ todo.time }}</strong>
+                                        <span class="taskDone" >on</span>
+                                        <strong class=" taskDatee taskDone"><i class="fa fa-calendar"></i> {{ todo.due_date }}</strong>
+                                        <span class="categoryy-{{ todo.category }}">{{ todo.category }}</span>
+                                    </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul> <!--end CurrentTaskList -->
+				</section>
+				<section id="tab-item-3">
+                    <ul id ="overdueTasks" class="taskList">
+                        {% for todo in todos %} 
+                            {% if DateNow >= todo.due_date|date:"Y-m-d" %}
+                                <li  class="overdueTaskItem">
+                                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                                    <span  id=TaskDone class="complete- taskDone">{{ todo.title }}</span>
+                                    <span class="taskDone" >at</span>
+                                    <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ todo.time }}</strong>
+                                    <span class="taskDone" >on</span>
+                                    <strong class="taskDatee taskDone"><i class="fa fa-calendar"></i> {{ todo.due_date }}</strong>
+                                    <span class="categoryy-{{ todo.category }}">{{ todo.category }}</span>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul> <!--end OverdueTaskList -->
+				</section>
+
+                {% if no_of_other_tasks == 0 and no_of_business_tasks == 0 and no_of_personal_tasks == 0 %}
+                <div class="No-task">
+                    <h2>No task yet</h2>
+                </div>
+                <div class="Addtask">
+                    <a href="{% url 'category:my_categories' %}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add Task(s) </span> </a>
+                </div> <!--end Addtask -->  
+                 {% endif %}
+
+			</div>
+          </div>
+            {% if no_of_other_tasks > 0 or no_of_business_tasks > 0 or no_of_personal_tasks > 0 %}
+            <div  class="Addtask">
+                <a href="{% url 'category:my_categories' %}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>   </a>
+            </div> <!--end taskAdd --> 
+            {% endif %}
+        </div>
+        
+    </div> 
 {% endblock content %} 
