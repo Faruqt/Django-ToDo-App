@@ -29,4 +29,5 @@ venv.bak/
 *.bak
 
 #static files
-DJANGO-TODO-APP/login_registration/staticfiles
+DJANGO-TODO-APP/staticfiles
+./staticfiles
