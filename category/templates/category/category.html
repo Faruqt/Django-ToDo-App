@@ -30,7 +30,7 @@
                             <div class="inputContainer choice ">
                                 
                                 <label for="category">Category:   </label>
-                                <select id="category" class="taskCategory" name="category_select">
+                                <select id="category" class="taskCategory" name="category_select" required>
                                 <option class="disabled" value="">Choose a category</option>
                                 {% for category in categories %}
                                     <option class="" value="{{ category }}" name="">{{ category}}</option>
@@ -42,12 +42,12 @@
 
                             <div class="inputContainer  time">
                                 <label for="Time-allocated">Time:  </label>
-                                <input type="time" id="Time-allocated" class="taskTime" name="time">
+                                <input type="time" id="Time-allocated" class="taskTime" name="time" required>
                             </div>
                             
                             <div class="inputContainer  date ">
                                 <label for="dueDate">Date: </label>
-                                <input type="date" id="dueDate" class="taskDate" name="date">
+                                <input type="date" id="dueDate" class="taskDate" name="date" required>
                             </div>   
                             <div class="buttons">
                                 <button class="taskAdd btn" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
