@@ -34,8 +34,8 @@ Homepage: <img src="./static/Readme/Homepage.png">
 
 Manage Tasks Page:  <img src="./static/Readme/Manage_Tasks.png"> 
  ```shell
- <li> To delete a task, click the checkbox and then click the trash icon </li>
- <li> Note:You cant delete multiple tasks at once </li>
+ * To delete a task, click the checkbox and then click the trash icon
+ * Note:You cant delete multiple tasks at once 
  ```
 
 Profile Page: <img src="./static/Readme/Profile.png"> 
