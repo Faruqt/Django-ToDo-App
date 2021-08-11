@@ -4,11 +4,25 @@ A <strong>TODO LIST</strong> web application with responsive UI which makes it e
 
 This helps you to achieve all your daily and weekly team objectives in timely fashion :slightly_smiling_face:.
 
+## App Usage
 - The web application has been deployed to heroku server so that you can have a full user experience of the web application .<a href="https://faruqs-todo-app.herokuapp.com/"> Click here </a>
-       
 
-Here are some screenshots of the web application:
-<br>
+## Code Usage
+- Clone the repository
+- Create your environment 
+ ```shell
+       python3 -m venv env
+ ```
+ -Make migrations
+  ```shell
+       python3 manage.py makemigrations
+ ```
+  -Run the following command to run the code in development mode
+  ```shell
+       python3 manage.py runserver
+ ```
+       
+## Preview
 
 Base page: <img src="./static/Readme/Base_page.png"> 
 
